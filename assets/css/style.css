@@ -310,7 +310,7 @@ input[type="checkbox"]:not(:checked) + label::before {
     right: 0;
     bottom: 0;
     background-color: var(--result-bg-color);
-    color: var(--font-color);
+    color: white;
     font-size: 18px;
     font-weight: 300;
 }
