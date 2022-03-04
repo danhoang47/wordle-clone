@@ -173,7 +173,7 @@ async function checkSubmitWord(word) {
     
     addFlipEffect(isTrue);
     addColorLetter(word, isTrue);
-    if (++currentRow !== 2) {
+    if (++currentRow !== 6) {
         letterBoxs = guessingRows[currentRow].querySelectorAll('.box');
         currentColumn = 0;
     }
