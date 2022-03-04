@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="https://kit.fontawesome.com/3401f860a7.js" crossorigin="anonymous"></script>
+    <title>Wordle</title>
+</head>
+<body>
+    <main>
+        <div id="header">
+            <div class="heading">
+                <h2>Wordle</h2>
+            </div>
+            <div class="setting-button">
+                <i class="fa-solid fa-gear"></i>
+            </div>
+            <div class="result-button">
+                <i class="fa-solid fa-square-poll-vertical"></i>
+            </div>
+        </div>
+        <div id="content">
+            <div class="guess-box">
+                <div class="row">
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                </div>
+                <div class="row">
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                </div>
+                <div class="row">
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                </div>
+                <div class="row">
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                </div>
+                <div class="row">
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                </div>
+                <div class="row">
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                </div>
+            </div>
+            <div class="keyboard">
+                <!-- lay innerHTML -->
+                <div class="key-row row-1">
+                    <div class="letter">Q</div>
+                    <div class="letter">W</div>
+                    <div class="letter">E</div>
+                    <div class="letter">R</div>
+                    <div class="letter">T</div>
+                    <div class="letter">Y</div>
+                    <div class="letter">U</div>
+                    <div class="letter">I</div>
+                    <div class="letter">O</div>
+                    <div class="letter">P</div>
+                </div>
+                <div class="key-row row-2">
+                    <div class="letter">A</div>
+                    <div class="letter">S</div>
+                    <div class="letter">D</div>
+                    <div class="letter">F</div>
+                    <div class="letter">G</div>
+                    <div class="letter">H</div>
+                    <div class="letter">J</div>
+                    <div class="letter">K</div>
+                    <div class="letter">L</div>
+                </div>
+                <div class="key-row row-3">
+                    <div class="modif" type="Enter">
+                        Enter
+                    </div>
+                    <div class="letter">Z</div>
+                    <div class="letter">X</div>
+                    <div class="letter">C</div>
+                    <div class="letter">V</div>
+                    <div class="letter">B</div>
+                    <div class="letter">N</div>
+                    <div class="letter">M</div>
+                    <div class="modif" type="Delete">
+                        <i class="fa-solid fa-delete-left"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="setting-menu" class="d-none">
+            <div class="setting-content">
+                <div class="content header">
+                    <p>settings</p>
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+                <div class="content game-mode clear">
+                    <div class="mode">
+                        <h3 class="setting-name">Hard Mode</h3>
+                        <p class="detail">Any revealed hints must be used in subsequent guesses</p>
+                    </div>
+                    <div class="switch-btn">
+                        <input type="checkbox" id="game-mode" hidden>
+                        <label for="game-mode" class="switch"></label>
+                    </div>
+                </div>
+                <div class="content game-theme clear">
+                    <div class="mode">
+                        <h3 class="setting-name">Dark Theme</h3>
+                    </div>
+                    <div class="switch-btn">
+                        <input type="checkbox" id="game-theme" hidden>
+                        <label for="game-theme" class="switch"></label>
+                    </div>
+                </div>
+                <div class="content game-mode clear">
+                    <div class="mode">
+                        <h3 class="setting-name">High Contrast Mode</h3>
+                        <p class="detail" style="margin-right: 166px">For improved color vision</p>
+                    </div>
+                    <div class="switch-btn">
+                        <input type="checkbox" id="contrast-mode" hidden>
+                        <label for="contrast-mode" class="switch"></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="result" class="d-none">
+            <div class="result-box">
+                <div class="result-content header">
+                    <p class="heading">So Close !!!</p>
+                </div>
+                <div class="close-btn">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+                <div class="result-content result-info">
+                    <div class="info">
+                        <h3 class="number">0</h3>
+                        <p class="info">Played</p>
+                    </div>
+                    <div class="info">
+                        <h3 class="number">0</h3>
+                        <p class="info">Win %</p>
+                    </div>
+                    <div class="info">
+                        <h3 class="number">0</h3>
+                        <p class="info">Current<br>Streak</p>
+                    </div>
+                    <div class="info">
+                        <h3 class="number">0</h3>
+                        <p class="info">Max<br>Streak</p>
+                    </div>
+                </div>
+                <ul class="result-content result-dis">
+                    <p class="heading">Guess Distribution</p>
+                    <li class="dis">
+                        <p class="guess-turn">1</p>
+                        <div class="percent">1</div>
+                    </li>
+                    <li class="dis">
+                        <p class="guess-turn">2</p>
+                        <div class="percent">1</div>
+                    </li>
+                    <li class="dis">
+                        <p class="guess-turn">3</p>
+                        <div class="percent">1</div>
+                    </li>
+                    <li class="dis">
+                        <p class="guess-turn">4</p>
+                        <div class="percent">1</div>
+                    </li>
+                    <li class="dis">
+                        <p class="guess-turn">5</p>
+                        <div class="percent">1</div>
+                    </li>
+                    <li class="dis">
+                        <p class="guess-turn">6</p>
+                        <div class="percent">1</div>
+                    </li>
+                </ul>
+                <div class="result-content reset-btn">
+                    <h2>Reset</h2>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script type="module" src="./main.js"></script>
+</body>
+</html>

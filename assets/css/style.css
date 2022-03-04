@@ -1,0 +1,478 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.d-none {
+    display: none;
+}
+
+.b-light {
+    border: 1px solid var(--light-border-color) !important;
+}
+
+.bg-ligh {
+    background-color: var(--main-bd-color);
+}
+
+.swipe-down {
+    animation: swipeDown 0.2s ease-in;
+}
+
+.clear {
+    overflow: auto;
+}
+
+.light-mode {
+    --font-color: black;
+    --main-bg-color: white;
+    --main-bd-color: rgb(199, 199, 199);
+    --light-border-color: rgb(32, 32, 32);
+    --keyboard-color: rgb(153, 153, 153);
+    --result-bg-color: white;
+    --shadow-box-color: #121213;
+}
+
+main {
+    height: 100vh;
+    --light-border-color: rgb(199, 199, 199);
+    --font-color: white;
+    --main-bg-color: black;
+    --main-bd-color: rgb(88, 87, 87);
+    --keyboard-color: rgb(124, 124, 124);
+    --result-bg-color: rgba(73, 72, 72, 0.4);
+    --modal-bg-color: #121213;
+    --shadow-box-color: black;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s linear;
+    background-color: var(--main-bg-color);
+}
+
+#header {
+    height: 7%;
+    border: 1px solid rgb(88, 87, 87);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background-color: var(--main-bg-color);
+    font-family: 'Clear Sans', 'Helvetica Neue', Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--font-color);
+    font-size: 20px;
+    position: relative;
+}
+
+#header .heading {
+    font-size: 24px;
+    letter-spacing: 0.1px;
+}
+
+#header .setting-button {
+    position: absolute;
+    right: 0;
+}
+
+#header .result-button {
+    position: absolute;
+    right: 44px;
+}
+
+.setting-button i, .result-button i {
+    padding: 16px 12px;
+    cursor: pointer;
+}
+
+.setting-button i:hover, result-button i:hover {
+    opacity: 0.6;
+}
+
+
+#content {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#content .guess-box {
+    margin: 6vh 0;
+    display: grid;
+    row-gap: 8px;
+}
+
+#content .row {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.row .box {
+    width: 60px;
+    height: 60px;
+    border: 1px solid rgb(65, 64, 64);
+    transition: all 0.3s linear;
+    line-height: 60px;
+    font-weight: 590;
+    text-align: center;
+    color: var(--font-color);
+    background-color: transparent;
+    perspective: 1000px;
+}
+
+.box .inner-box {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    /* flip */
+    transform-style: preserve-3d;
+    transition: transform 0.8s;
+}
+
+.inner-box .front, .inner-box .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.inner-box p {
+    display: inline-block;
+}
+
+.back {
+    transform: rotateX(-180deg);
+}
+
+
+#content .keyboard {
+    display: flex;
+    flex-direction: column;
+}
+
+.keyboard .key-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+    justify-content: center;
+}
+
+.key-row .letter, .key-row .modif {
+    background-color: var(--keyboard-color);
+    font-size: 16px;
+    color: var(--main-bg-color);
+    padding: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+}
+
+.key-row .letter {
+    width: 36px;
+    font-weight: 600;
+}
+
+.key-row .letter:hover, .key-row .modif:hover {
+    opacity: 0.7;
+}
+
+.key-row .modif {
+    flex: 1 0;
+    font-weight: 600;
+    
+}
+
+.row-3 .modif i {
+    font-size: 20px;
+} 
+
+#setting-menu {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: var(--main-bg-color);
+    animation: swipeUp 0.2s ease-in;
+    color: var(--font-color);
+    text-align: center;
+}
+
+#setting-menu .setting-content {
+    display: inline-block;
+}
+
+.setting-content .content {
+    padding: 8px 0;
+    position: relative;
+    border-bottom: 1px solid var(--main-bd-color);
+}
+
+.setting-content .header {
+    margin-bottom: 20px;
+    border: none;
+}
+
+.setting-content .header p {
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+.setting-content .fa-xmark {
+    padding: 0.2rem 0.2rem;
+    font-size: 24px;
+    position: absolute;
+    top: 2px;
+    right: 0;
+}
+
+.setting-content .fa-xmark:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.game-mode > *, .game-theme > * {
+    text-align: left;
+    float: left;
+}
+
+.content .detail {
+    font-size: 12px;
+    color: var(--light-border-color);
+}
+
+.content .setting-name {
+    font-weight: 400;
+}
+
+.game-mode .switch-btn {
+    float: left;
+}
+
+.switch-btn .switch {
+    position: relative;
+    display: inline-block;
+    width: 32px;
+    height: 20px;
+    background-color: var(--main-bd-color);
+    margin-top: 8px;
+    margin-left: 56px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.switch-btn .switch::before {
+    content: "";
+    position: absolute;
+    top: 1px;
+    bottom: 0;
+    left: 1px;
+    width: 18px;
+    height: 18px;
+    border-radius: 9px;
+    background-color: white;
+}
+
+.game-theme h3 {
+    margin-top: 6px;
+}
+
+.game-theme .switch-btn {
+    float: right;
+}
+
+input[type="checkbox"]:checked + label::before {
+    transition: transform 0.2s ease-out;
+    transform: translateX(12px);
+}
+
+input[type="checkbox"]:checked + label {
+    background-color: #1fdb70;
+}
+
+input[type="checkbox"]:not(:checked) + label::before {
+    transition: transform 0.2s ease-out;
+
+}
+
+#result {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--result-bg-color);
+    color: var(--font-color);
+    font-size: 18px;
+    font-weight: 300;
+}
+
+#result .result-box {
+    position: relative;
+    margin-top: 12%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 443px;
+    background-color: var(--modal-bg-color);
+    animation: swipeUp 0.1s linear;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 8px;
+    box-shadow: 8px 8px 50px var(--shadow-box-color); 
+}
+
+.result-content {
+    margin-bottom: 8px;
+    margin-top: 8px;
+}
+
+.result-box .header {
+    display: inline-block;
+    margin-bottom: 0;
+}
+
+.result-box .header p {
+    color: var(--font-color);
+    margin-top: 32px;
+}
+
+.result-box .result-info {
+    display: flex;
+    gap: 16px;
+}
+
+.result-info h3 {
+    text-align: center;
+    font-size: 52px;
+    font-weight: 100;
+}
+
+.result-info p {
+    font-size: 12px;
+    color: var(--light-border-color);
+}
+
+.result-box .close-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 8px 12px;
+    color: var(--font-color);
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.result-box .close-btn:hover {
+    opacity: 0.6;
+}
+
+.result-box .result-dis {
+    width: 100%;
+    padding: 0 64px; 
+    list-style-type: none;
+    text-align: center;
+} 
+
+.result-dis > p {
+    margin-bottom: 8px;
+}
+
+.result-box .result-dis .dis {
+    font-size: 16px;    
+    display: flex;
+    gap: 8px;
+}
+
+.result-dis .percent {
+    flex: 1 0;
+    height: 1em;
+    background-color: var(--main-bd-color);
+    color: var(--font-color);
+}
+
+.result-box .reset-btn {
+    display: inline-block;
+    background-color: var(--main-bd-color);
+    border-radius: 8px;
+    transition: all 0.2s linear;
+    cursor: pointer;
+    margin-top: 8px;
+    margin-bottom: 32px;
+}
+
+.result-box .reset-btn h2 {
+    display: inline-block;
+    padding: 10px 32px;
+}
+
+.result-box .reset-btn:hover {
+    background-color: #1fdb70;
+}
+
+@keyframes swipeUp {
+    from {
+        transform: translateY(100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes swipeDown {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(100%);
+    }
+}
+
+@keyframes vibrate {
+    0% {
+        transform: translateX(-8%);
+    }
+
+    20% {
+        transform: translateX(0);
+    }
+
+    40% {
+        transform: translateX(8%);
+    }
+
+    60% {
+        transform: translateX(-5%);
+    }
+
+    80% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(5%);
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        font-size: 16px;
+    }
+
+    to {
+        font-size: 30px;
+    }
+}
+
+
+
