@@ -167,6 +167,7 @@ async function checkSubmitWord(word) {
 
     totalResult.push(isTrue);
     if ( isTrue.reduce((prev, value) => prev + value, 0) == 0 ) {
+        playedTurn++;
         resultHeader.innerHTML = message[0]; 
         setTimeout(getResult, 1500);
     }
@@ -178,6 +179,7 @@ async function checkSubmitWord(word) {
         currentColumn = 0;
     }
     else { 
+        playedTurn++;
         setTitle();               
         setTimeout(getResult, 1500);
     }
@@ -231,7 +233,6 @@ function addVibrateEffect() {
 
 function getResult() {
     resultInfo.forEach((value) => value.innerHTML = playedTurn);
-    playedTurn++;
 
     result.classList.toggle('d-none');
 }
