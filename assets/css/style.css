@@ -150,6 +150,7 @@ main {
 
 .back {
     transform: rotateX(-180deg);
+    color: white;
 }
 
 

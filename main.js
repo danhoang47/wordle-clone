@@ -1,5 +1,6 @@
 import {arrayOfWords as words} from './keyWord.js';
 
+const main = document.querySelector('main');
 const settingBtn = document.querySelector('.fa-gear');
 const closeBtn = document.querySelector('.fa-xmark');
 const settingMenu = document.querySelector('#setting-menu');
@@ -29,7 +30,7 @@ resetBtn.addEventListener('click', () => {
 })
 
 themeBtn.onclick = () => {
-    document.querySelector('main').classList.toggle('light-mode');
+    main.classList.toggle('light-mode');
     result.classList.toggle('light-mode');
 }
 
@@ -212,7 +213,7 @@ async function addFlipEffect(isTrue) {
             value.querySelector('.inner-box').style.transform = 'rotateX(-180deg)';
             value.classList.remove('b-light');
             value.style.border = 'none !important';
-            value.style.color = 'white';
+
         }, time);
         time += 100;
     })
