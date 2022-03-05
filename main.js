@@ -20,7 +20,7 @@ const helpBtn = document.querySelector('#header .help-button');
 const closeHelpBtn = document.querySelector('#help .close-btn');
 const helpBox = document.querySelector('#help');
 const totalResult = [];
-let currentRow, currentColumn, letterBoxs, playedTurn = 1, keyWord;
+let currentRow, currentColumn, letterBoxs, playedTurn = 0, keyWord;
 
 init();
 //change theme
