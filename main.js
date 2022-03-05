@@ -15,6 +15,9 @@ const resultInfo = document.querySelectorAll('.result-info .info h3');
 const resultHeader = document.querySelector('#result .header .heading');
 const closeResultBtn = document.querySelector('#result .close-btn');
 const openResultBtn = document.querySelector('#header .result-button');
+const helpBtn = document.querySelector('#header .help-button');
+const closeHelpBtn = document.querySelector('#help .close-btn');
+const helpBox = document.querySelector('#help');
 const totalResult = [];
 let currentRow, currentColumn, letterBoxs, playedTurn = 1, keyWord;
 
@@ -27,9 +30,14 @@ resetBtn.addEventListener('click', () => {
 
 themeBtn.onclick = () => {
     document.querySelector('main').classList.toggle('light-mode');
+    result.classList.toggle('light-mode');
 }
 
 closeResultBtn.onclick = openResultBtn.onclick = getResult;
+
+helpBtn.onclick = closeHelpBtn.onclick = () => {
+    helpBox.classList.toggle('d-none');
+}
 
 //set up keyboard to get letter 
 for (let i = 0; i < keyLetters.length; i++) {
@@ -204,6 +212,7 @@ async function addFlipEffect(isTrue) {
             value.querySelector('.inner-box').style.transform = 'rotateX(-180deg)';
             value.classList.remove('b-light');
             value.style.border = 'none !important';
+            value.style.color = 'white';
         }, time);
         time += 100;
     })

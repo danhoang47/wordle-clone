@@ -32,8 +32,9 @@
     --main-bd-color: rgb(199, 199, 199);
     --light-border-color: rgb(32, 32, 32);
     --keyboard-color: rgb(153, 153, 153);
-    --result-bg-color: white;
+    --result-bg-color: #ffffff6b;
     --shadow-box-color: #121213;
+    --modal-bg-color: #ffffff;
 }
 
 main {
@@ -75,22 +76,22 @@ main {
     letter-spacing: 0.1px;
 }
 
-#header .setting-button {
+#header .nav {
     position: absolute;
+    top: 0;
     right: 0;
 }
 
-#header .result-button {
-    position: absolute;
-    right: 44px;
+#header .nav > * {
+    float: right;
 }
 
-.setting-button i, .result-button i {
+.nav div > i {
     padding: 16px 12px;
     cursor: pointer;
 }
 
-.setting-button i:hover, result-button i:hover {
+.nav div > i:hover {
     opacity: 0.6;
 }
 
@@ -303,21 +304,21 @@ input[type="checkbox"]:not(:checked) + label::before {
 
 }
 
-#result {
+#result, #help {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     background-color: var(--result-bg-color);
-    color: white;
+    color: var(--font-color);
     font-size: 18px;
     font-weight: 300;
 }
 
-#result .result-box {
+#result .result-box, #help .help-box {
     position: relative;
-    margin-top: 12%;
+    margin-top: 20vh;
     margin-left: auto;
     margin-right: auto;
     width: 443px;
@@ -335,17 +336,16 @@ input[type="checkbox"]:not(:checked) + label::before {
     margin-top: 8px;
 }
 
-.result-box .header {
+.result-box .header, .help-box .heading {
     display: inline-block;
     margin-bottom: 0;
 }
 
-.result-box .header p {
-    color: var(--font-color);
+.result-box .header p, .help-box .heading p {
     margin-top: 32px;
 }
 
-.result-box .result-info {
+.result-box .result-info, .help-box .help-content {
     display: flex;
     gap: 16px;
 }
@@ -361,7 +361,7 @@ input[type="checkbox"]:not(:checked) + label::before {
     color: var(--light-border-color);
 }
 
-.result-box .close-btn {
+.result-box .close-btn, .help-box .close-btn {
     position: absolute;
     top: 0;
     right: 0;
@@ -417,6 +417,50 @@ input[type="checkbox"]:not(:checked) + label::before {
 .result-box .reset-btn:hover {
     background-color: #1fdb70;
 }
+
+.help-box .heading p {
+    margin-bottom: 12px;
+}
+
+.help-box .help-content {
+    flex-direction: column;
+    margin-bottom: 32px;
+    font-size: 16px;
+}
+
+.help-box .help-content > * {
+    padding: 0 12px;
+}
+
+.help-content .help-guess-info {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+}
+
+.help-guess-info .guess-info {
+    width: 80px;
+    text-align: center;
+    line-height: 80px;
+    font-size: 2em;
+}
+
+.help-guess-info .box-true {
+    background-color: #1fdb70;
+}
+
+.help-guess-info .box-false {
+    background-color: #e6d432;
+}
+
+.help-guess-info .box-barely {
+    background-color: rgb(76, 76, 75);
+}
+
+.help-box .close-btn i:hover {
+    opacity: 0.6;
+}
+
 
 @keyframes swipeUp {
     from {

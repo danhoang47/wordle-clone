@@ -14,12 +14,17 @@
             <div class="heading">
                 <h2>Wordle</h2>
             </div>
-            <div class="setting-button">
-                <i class="fa-solid fa-gear"></i>
-            </div>
-            <div class="result-button">
-                <i class="fa-solid fa-square-poll-vertical"></i>
-            </div>
+           <div class="nav">
+                <div class="setting-button">
+                    <i class="fa-solid fa-gear"></i>
+                </div>
+                <div class="result-button">
+                    <i class="fa-solid fa-square-poll-vertical"></i>
+                </div>
+                <div class="help-button">
+                    <i class="fa-solid fa-circle-question"></i>
+                </div>
+           </div>
         </div>
         <div id="content">
             <div class="guess-box">
@@ -200,6 +205,28 @@
                 </ul>
                 <div class="result-content reset-btn">
                     <h2>Reset</h2>
+                </div>
+            </div>
+        </div>
+        <div id="help" class="d-none">
+            <div class="help-box">
+                <div class="heading">
+                    <p>Game's Rules</p>
+                </div>
+                <div class="help-content">
+                    <p>Bạn được cho <span style="font-weight: bold;">6</span> lượt đoán, nhiệm vụ của bạn là nhập vào từ tiếng anh có nghĩa và phải đoán trúng được từ khóa mà game cung cấp</p>
+                    <p>Sau mỗi lượt đoán, gợi ý sẽ xuất hiện ở mỗi ô chữ như sau</p>
+                    <div class="help-guess-info">
+                        <div class="guess-info box-true">T</div>
+                        <div class="guess-info box-false">T</div>
+                        <div class="guess-info box-barely">T</div>
+                    </div>
+                    <p>Nếu là ô màu xanh : chữ cái đó <span style="font-weight: bold; color: #1fdb70">có trong</span> và nằm đúng vị trí</p>
+                    <p>Nếu là ô màu vàng : chữ cái đó <span style="font-weight: bold; color: #e6d432">có trong</span> nhưng nằm đúng vị trí</p>
+                    <p>Nếu là ô màu xanh : chữ cái đó <span style="font-weight: bold; color: rgb(76, 76, 75)">không nằm trong</span> từ khóa</p>
+                </div>
+                <div class="close-btn">
+                    <i class="fa-solid fa-xmark"></i>
                 </div>
             </div>
         </div>
